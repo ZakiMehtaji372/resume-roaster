@@ -11,40 +11,41 @@ import type { RoastResult } from "@/lib/parseRoast";
 // --- Default sample roast shown before any upload ---
 const SAMPLE_ROAST: RoastResult = {
   score: 41,
+
+  breakdown: {
+    impact: 38,
+    clarity: 45,
+    ats: 42,
+    structure: 40,
+  },
+
   verdict:
     "A graveyard of vague responsibilities dressed up in corporate jargon — this résumé tells recruiters what you did, not why they should care.",
+
   strengths: [
-    "Strong educational background from a recognizable institution that at least establishes baseline credibility.",
-    "Tenure at well-known companies adds implicit social proof, even if the bullets don't back it up.",
+    "Strong educational background from a recognizable institution.",
+    "Experience at known companies adds credibility.",
   ],
+
   weaknesses: [
-    "Every bullet starts with a verb but ends with nothing quantifiable — 'led initiatives' and 'managed projects' mean absolutely nothing without numbers.",
-    "The skills section reads like a keyword dump. Any recruiter who's seen more than ten résumés will skim straight past it.",
-    "No clear narrative thread — a recruiter can't tell whether you're a generalist, a specialist, or just lost.",
+    "No measurable impact in bullet points.",
+    "Too many vague buzzwords.",
+    "Lack of clear positioning.",
   ],
+
+  improvements: [
+    "Add measurable metrics to all bullet points",
+    "Reduce generic buzzwords",
+    "Clarify your role positioning (frontend/backend/etc)",
+  ],
+
   bullets: [
     {
       original:
         "Responsible for managing a team of engineers to deliver product features on time.",
       rewritten:
-        "Led a 6-person engineering team to ship 14 product features across 3 quarters, reducing release cycle from 3 weeks to 8 days.",
-      reason:
-        "The original tells recruiters you had a responsibility. The rewrite proves you executed on it. Specific team size, output count, and time improvement make the impact impossible to ignore.",
-    },
-    {
-      original:
-        "Worked closely with stakeholders to improve the customer onboarding experience.",
-      rewritten:
-        "Partnered with Product and CX teams to redesign onboarding flow, cutting median time-to-activate from 11 days to 4 and increasing 30-day retention by 18%.",
-      reason:
-        "'Worked closely with stakeholders' is what every single résumé says. The rewrite names the teams, the specific outcome, and the business metric that proves the work actually mattered.",
-    },
-    {
-      original: "Helped drive adoption of new internal tools across the organization.",
-      rewritten:
-        "Championed rollout of Notion + Linear across 4 departments (120+ employees), achieving 87% weekly active usage within 60 days of launch.",
-      reason:
-        "'Helped drive adoption' is deliberately vague — it sounds like you attended one Zoom call. The rewrite shows scale, timeline, and the adoption metric that proves the initiative succeeded.",
+        "Led a 6-person engineering team to ship 14 features, reducing release cycle from 3 weeks to 8 days.",
+      reason: "Adds measurable impact and clarity.",
     },
   ],
 };
