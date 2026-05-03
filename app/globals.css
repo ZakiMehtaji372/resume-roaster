@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-mono: "DM Mono", "Courier New", monospace;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #fafaf8;
+    color: #1a1a1a;
+  }
+
+  ::selection {
+    background-color: #6366f1;
+    color: white;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .score-glow-red {
+    text-shadow: 0 0 40px rgba(239, 68, 68, 0.3);
+  }
+
+  .score-glow-amber {
+    text-shadow: 0 0 40px rgba(245, 158, 11, 0.3);
+  }
+
+  .score-glow-green {
+    text-shadow: 0 0 40px rgba(34, 197, 94, 0.3);
+  }
+}
+
+/* Drag-and-drop active state */
+.drop-active {
+  border-color: #6366f1 !important;
+  background-color: #eef2ff !important;
+}
+
+/* Loading message animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink::after {
+  content: "▋";
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+/* Stagger animation helpers */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+
+.animate-fade-up {
+  animation: fadeUp 0.5s ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Strikethrough animation */
+.strike-animated {
+  position: relative;
+}
+
+.strike-animated::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 1.5px;
+  background: #ef4444;
+  animation: strikeThrough 0.6s ease 0.3s forwards;
+}
+
+@keyframes strikeThrough {
+  to { width: 100%; }
+}
+
+/* Noise texture overlay */
+.noise::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px;
+  z-index: 999;
+}
